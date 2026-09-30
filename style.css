@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #050510;
+    color: white;
+
+    overflow: hidden;
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.15), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.15), transparent 30%);
+
+    animation: fondo 6s ease-in-out infinite alternate;
+    z-index: -2;
+}
+
+@keyframes fondo {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(120deg);
+    }
+}
+
+
+
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    padding: 3px;
+
+    background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff00ff,
+        #0000ff,
+        #00ffff,
+        #00ff00,
+        #ffff00,
+        #ff0000
+    );
+
+    background-size: 400% 400%;
+
+    animation: rgb 4s linear infinite;
+
+
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+
+    mask-composite: exclude;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+
+    -webkit-mask-composite: xor;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+@keyframes rgb {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+.contenedor {
+    width: 450px;
+    padding: 40px;
+
+    text-align: center;
+
+    background: rgba(10, 10, 30, 0.85);
+
+    border-radius: 20px;
+
+    border: 2px solid rgba(0, 255, 255, 0.5);
+
+    box-shadow:
+        0 0 10px #00ffff,
+        0 0 25px rgba(0, 255, 255, 0.5),
+        inset 0 0 20px rgba(0, 255, 255, 0.1);
+
+    animation: tarjeta 3s ease-in-out infinite alternate;
+}
+
+@keyframes tarjeta {
+    0% {
+        box-shadow:
+            0 0 10px #00ffff,
+            0 0 25px rgba(0, 255, 255, 0.5);
+    }
+
+    50% {
+        box-shadow:
+            0 0 15px #ff00ff,
+            0 0 35px rgba(255, 0, 255, 0.6);
+    }
+
+    100% {
+        box-shadow:
+            0 0 15px #00ff66,
+            0 0 35px rgba(0, 255, 100, 0.6);
+    }
+}
+
+
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+
+    color: white;
+
+    text-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 20px #ff00ff;
+
+    animation: titulo 2s linear infinite;
+}
+
+@keyframes titulo {
+    0% {
+        text-shadow:
+            0 0 5px #ff0000,
+            0 0 15px #ff0000;
+    }
+
+    25% {
+        text-shadow:
+            0 0 5px #00ffff,
+            0 0 15px #00ffff;
+    }
+
+    50% {
+        text-shadow:
+            0 0 5px #00ff00,
+            0 0 15px #00ff00;
+    }
+
+    75% {
+        text-shadow:
+            0 0 5px #ff00ff,
+            0 0 15px #ff00ff;
+    }
+
+    100% {
+        text-shadow:
+            0 0 5px #ff0000,
+            0 0 15px #ff0000;
+    }
+}
+
+p {
+    color: #cfcfff;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+
+button {
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 10px;
+
+    border: 2px solid #00ffff;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    text-shadow: 0 0 5px #00ffff;
+
+    box-shadow:
+        0 0 8px #00ffff,
+        inset 0 0 8px rgba(0, 255, 255, 0.2);
+
+    transition: 0.3s;
+}
+
+
+
+button:hover {
+    background: rgba(0, 255, 255, 0.15);
+
+    border-color: #ff00ff;
+
+    box-shadow:
+        0 0 10px #ff00ff,
+        0 0 25px #ff00ff,
+        inset 0 0 15px rgba(255, 0, 255, 0.3);
+
+    transform: scale(1.05);
+}
+
+
+
+button:active {
+    transform: scale(0.95);
+
+    box-shadow:
+        0 0 20px #00ffff,
+        0 0 40px #00ffff;
+}
